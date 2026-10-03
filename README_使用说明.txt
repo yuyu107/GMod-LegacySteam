@@ -5,7 +5,7 @@ Test3 修复：适配初始化的已知接口版本检查，并同时为原版 S
 
 保留前版修复：将原版 API 声明为直接 DLL 依赖，修正 Win7 首次解析转发入口时出现的“找不到指定的程序”错误。安装脚本可从 Test1/Test2 直接升级，并兼容旧版 .NET，以及根目录/子目录两种放置方式。
 
-这是兼容测试包。测试者已确认在 Windows 7 + 2024 年 11 月 Steam 下，32/64 位游戏均可启动，单人、联机、覆盖层、模组下载和使用正常。已知问题：游戏内插件列表及“我的订阅”的预览图不显示。结果仅针对这组测试环境。
+这是兼容测试包。测试者已确认在 Windows 7 + 2024 年 11 月 Steam 下，32/64 位游戏均可启动，单人、联机、覆盖层、模组下载和使用正常；创意工坊下载可能还需配合 Zstd 下载补丁。已知问题：游戏内插件列表及“我的订阅”的预览图不显示。结果仅针对这组测试环境。
 
 安装
 1. 完全退出 Garry’s Mod，Steam 保持正常运行。
@@ -13,6 +13,11 @@ Test3 修复：适配初始化的已知接口版本检查，并同时为原版 S
    示例：D:\SteamLibrary\steamapps\common\GarrysMod\GMod-LegacySteam-Test3\Install.cmd
 3. 双击 Install.cmd。看到 TEST3 installed 后，从 Steam 按原来的方式启动游戏。
 4. 如果进了主菜单，先测试单人地图，再检查已订阅创意工坊模组是否出现。
+
+创意工坊下载提示
+本包适配游戏 Steamworks 接口，不包含 Steam 客户端的 Zstd 下载支持。下载采用 Zstd 压缩的创意工坊内容时，旧版 Steam 可能还需配合 SteamLegacyZstd / Old Steam VSZa Launcher：
+https://github.com/yuyu107/SteamLegacyZstd
+请按该项目说明使用，并确认其支持你的客户端版本。是否需要取决于下载内容的压缩格式。
 
 反馈
 无论成功还是失败，请反馈是否进了主菜单，以及游戏根目录的 GMod-LegacySteam.log。
