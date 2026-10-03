@@ -1,0 +1,11 @@
+Before building, generate import libraries:
+zig dlltool -m i386 -d source/dependency32.def -l source/dependency32.lib
+zig dlltool -m i386:x86-64 -d source/dependency64.def -l source/dependency64.lib
+
+Build with Zig 0.16.0 (ziglang Python package) targeting x86-windows-gnu and x86_64-windows-gnu.
+
+zig cc -target x86_64-windows-gnu -O2 -ffreestanding -fno-builtin -fno-stack-protector -nostdlib -isystem <zig-root>/lib/libc/include/any-windows-any -shared -Wl,--entry,DllMain source/bridge.c source/exports64.def source/dependency64.lib -lkernel32 -ladvapi32 -luser32 -o payload64/steam_api64.dll
+
+For x86, use -target x86-windows-gnu, -Wl,--entry,DllMain@12, source/exports32.def, source/dependency32.lib and payload32/steam_api.dll.
+
+Verification: python source/verify_bridge.py

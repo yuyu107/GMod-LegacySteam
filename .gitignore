@@ -1,0 +1,6 @@
+*.lib
+*.pdb
+__pycache__/
+*.pyc
+GMod-LegacySteam.log
+*_original.dll

@@ -1,0 +1,15 @@
+{
+  "32": {
+    "sha256": "c8be7feeaa3e10585e006898acc89d15f4e9558cb58a7284180509c690e02e2d",
+    "original_export_count": 1054,
+    "direct_dependency": "steam_api_original.dll",
+    "extra_crt_dependencies": false
+  },
+  "64": {
+    "sha256": "dc11ea1fed53819dd2ab7f1e0a51ed16d6792f5cd7771c17158cf55f5b3f91b7",
+    "original_export_count": 1054,
+    "direct_dependency": "steam_api64_original.dll",
+    "extra_crt_dependencies": false
+  },
+  "tests": "Both compiled DLLs passed Unicorn mocked backend tests including internal SteamClient017 routing and initialization version-list translation. No live Win7/GMod run performed."
+}
